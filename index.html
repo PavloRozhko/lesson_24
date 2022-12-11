@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lesson 24</title>
+	<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<h1 class="header__title">Урок 24 - JavaScript (частина 3).</h1>
+			</div>
+		</header>
+		<main class="page">
+			<section class="array">
+				<div class="array__content">
+					<div class="array__container">
+						<h2 class="array__title title">Масиви в JS.</h2>
+						<div class="array__image">
+							<img src="img/array.jpg" alt="image">
+						</div>
+						<div class="array__text">
+							<p><span>Задача №1.</span></p>
+							<p>Довжина масиву "arr" у задачі буде дорівнювати 4. Таке значення отримаємо через те, що фактично
+								оголосивши нову змінну "newArr" і присвоївши туди дані з масиву "arr" за посилання ми не отримуємо
+								нового масиву. Тобто, всі зміни будуть відбуватися в основному масиві "arr", не важливо вносимо їх через
+								змінну "arr" або "newArr".</p>
+							<p><span>Задача №2.</span></p>
+							<p>Для виконання поставленої задачі код може бути наступний:</p>
+							<div class="array__task task-2">
+								<div class="task-2__code">
+									<p>
+									<pre><code>let users = ["Ваня", "Іштван",];</code></pre>
+									<pre><code>users.forEach(function (item, index, array){</code></pre>
+									<pre><code>  if (!users.includes("Оля")) {</code></pre>
+									<pre><code>    users.push("Оля");</code></pre>
+									<pre><code>  else if (users.includes("Іштван")) {</code></pre>
+									<pre><code>    users.splice(1, 1, "Петя");{</code></pre>
+									<pre><code>  if (!users.includes("Іштван")) {{</code></pre>
+									<pre><code>    let removedUser = users.splice(0, 1);</code></pre>
+									<pre><code>    console.log(removedUser);</code></pre>
+									<pre><code>    users.unshift("Маша", "Паша");</code></pre>
+									<pre><code>  }</code></pre>
+									<pre><code>});</code></pre>
+									</p>
+								</div>
+								<div class="task-2__comment">
+									<p>
+									<pre>//Створення нового масиву.</pre>
+									<pre>//Створення методу перебору масиву "forEach".</pre>
+									<pre>//Умова для додавання даних в кінець масиву.</pre>
+									<pre>//Додавання нових даних в кінець масиву.</pre>
+									<pre>//Нова умова для заміни даних в масиві.</pre>
+									<pre>//Заміна даних в масиві.</pre>
+									<pre>//Нова умова.</pre>
+									<pre>//Видалення першого елемента масиву.</pre>
+									<pre>//Виведення в консоль видаленого елемента.</pre>
+									<pre>//Додавання двох елементів в початок масиву.</pre>
+									</p>
+								</div>
+							</div>
+							<p><span>Задача № 3.</span></p>
+							<p>Для того, щоб видалити елемент із масиву і повернути його у консоль потрібно скористатись методом
+								"splice". Приклад
+								коду наступний:
+							<pre><code>let arr = ['Ваня', 'Иштван', 'Оля',];</code></pre>
+							<pre><code>let removedElem = arr.splice(1, 1);</code>.</pre>
+							<pre><code>console.log(removedElem);</code>.</pre>
+							</p>
+							<p><span>Задача №4.</span></p>
+							<p>Щоб зробити з рядка масив потрібно скористатися методом "split". Приклад коду може бути наступний:
+							<pre><code>let str = 'Ваня,Иштван,Оля';</code></pre>
+							<pre><code>let someArr = str.split(',');</code>.</pre>
+							</p>
+							<p><span>Задача №5.</span></p>
+							<p>На початку роботи метода "reduce" "previousValue" буде дорівнювати значенню першого елемента, а саме:
+								9, оскільки початкове значення для нього не вказано.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="function">
+				<div class="function__content">
+					<div class="function__container">
+						<h2 class="function__title title">Функції в JS.</h2>
+						<div class="function__image">
+							<img src="img/function.jpg" alt="image">
+						</div>
+						<div class="function__text">
+							<p><span>Задача №1.</span></p>
+							<p> В консоль першим потрапить 'Коля', тому що до функції після виклику якої в консоль має потрапити рядок
+								'Коля'
+								застосована властивість "setTimeout", через яку виклик функції затримаєтесь.
+							</p>
+							<p><span>Задача №2.</span></p>
+							<p>У задачі функція викликана вірно, бо функція може бути викликана як до її оголошення, так і після.
+							</p>
+							<p><span>Задача №3.</span></p>
+							<p>Ні, функція викликана не вірно. В консоль потрапить помилка ініціалізації. Для правильного виклику
+								функції, що присвоєна
+								змінні, спочатку потрібно оголосити цю змінну. Потім створити функцію в якій раніше оголошеній змінній
+								потрібно
+								присвоїти функцію виклику повідомлення в консоль. Наступним кроком буде виклик функції, а вже потім
+								виклик змінної, якій
+								присвоєно функцію. Код може бути наступний:
+							<pre><code>let showMessage;</code></pre>
+							<pre><code>function getMessage() {</code></pre>
+							<pre><code>  showMessage = function () {</code></pre>
+							<pre><code>    console.log('Сообщение');</code></pre>
+							<pre><code>  }</code></pre>
+							<pre><code>}</code></pre>
+							<pre><code>getMessage();</code></pre>
+							<pre><code>showMessage();</code>.</pre>
+							</p>
+							<p><span>Задача № 4.</span></p>
+							<p>В консоль виводиться помилка через ту причину, що функція викликаться поза областю своєї видимості. Для
+								того, щоб код
+								спрацював потрібно функцію викликати в середині умовного розгалуження. Приклад коду наступний:
+							<pre><code>if (2 > 1) {</code></pre>
+							<pre><code>  function showMessage() {</code></pre>
+							<pre><code>  }</code></pre>
+							<pre><code>  showMessage()</code></pre>
+							<pre><code>}</code>.</pre>
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="dom">
+				<div class="dom__content">
+					<div class="dom__container">
+						<h2 class="dom__title title">Document Object Model</h2>
+						<div class="dom__image">
+							<img src="img/bom.jpg" alt="image">
+						</div>
+						<div class="dom__text">
+							<p><span>Задача №1.</span></p>
+							<p>
+								Для того, щоб прочитати значення довільного атрибуту потрібно скористатися методом "getAttribute". Для
+								отримання в
+								змінну елемента з атрибутом "data-say-hi" і читання його значення код можу бути наступний:
+							<pre><code>const sayHi = document.querySelector('div');</code></pre>
+							<pre><code>console.log(sayHi.getAttribute('data-say-hi'));</code></pre>
+							</p>
+							<p><span>Задача № 2.</span></p>
+							<p>
+								Щоб отримати в змінну елемент з текстом "Йончі" потрібно скористатися властивістю "nextElementSibling".
+								Приклад коду може бути наступний:
+							<pre><code>const listItem = document.querySelector('li');</code></pre>
+							<pre><code>const nextElementSibling = listItem.nextElementSibling;</code>.</pre>
+							</p>
+							<p><span>Задача № 3.</span></p>
+							<p>
+								Щоб отримати в змінну колекцію елементів з класом "like" потрібно використати метод "querySelectorAll".
+								Код може бути наступний.
+							<pre><code>const likeElements = document.querySelectorAll('.like');</code>.</pre>
+							</p>
+							<p><span>Задача № 4.</span></p>
+							<p>При виконанні коду елемент "li" додасться в кінець списку.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="bom">
+				<div class="bom__content">
+					<div class="bom__container">
+						<h2 class="bom__title title">Browser Object Model.</h2>
+						<div class="bom__image">
+							<img src="img/bom.jpg" alt="image">
+						</div>
+						<div class="bom__text">
+							<p><span>Задача №1.</span></p>
+							<p>
+								Дізнатись ширину смуги прокрутки можна отримавши різницю ширини вікна елементу та вікна, скориставшись
+								при цьому
+								властивостями "clientWidth" для елемента та "innerWidth" для вікна. приклад коду може бути наступний:
+							</p>
+							<div class="bom__task task-1">
+								<div class="task-1__code">
+									<p>
+									<pre><code>function scrollWidth() {</code></pre>
+									<pre><code>  const mainElement = document.documentElement;</code></pre>
+									<pre><code>  const mainElementWidth = mainElement.clientWidth;</code></pre>
+									<pre><code>  const windowWidth = window.innerWidth;</code></pre>
+									<pre><code>  function getDiff() {</code></pre>
+									<pre><code>    const difference = windowWidth - mainElementWidth;</code></pre>
+									<pre><code>    console.log(difference);</code></pre>
+									<pre><code>  }</code></pre>
+									<pre><code>  getDiff();</code></pre>
+									<pre><code>}</code></pre>
+									<pre><code>scrollWidth();</code>.</pre>
+									</p>
+								</div>
+								<div class="task-1__comment">
+									<p>
+									<pre>// Створення функції для отримання ширини смуги.</pre>
+									<pre>// Отримуємо в константу HTML документ.</pre>
+									<pre>// Отримуємо ширину вікна браузера.</pre>
+									<pre>// Отримуємо ширину вікна.</pre>
+									<pre>// Функція для отримання різниці ширини вікна та ширини вікна браузера.</pre>
+									<pre>// Операція отримання різниці ширини вікна та ширини браузера.</pre>
+									</p>
+								</div>
+							</div>
+							<p><span>Задача №2.</span></p>
+							<p>Щоб змусити прокрутитись браузер на 100px через 1 секунду після завантаження сторінки потрібно
+								скористатись методом "scrollBy" та "setTimeout". Приклад коду може бути наступний:
+							<pre><code>function scrollWindow() {</code></pre>
+							<pre><code>  window.scrollBy(0, 100);</code></pre>
+							<pre><code>}</code></pre>
+							<pre><code>setTimeout(scrollWindow, 1000);</code>.</pre>
+							</p>
+							<p><span>Задача №3.</span></p>
+							<p>Отримати координати будь-яких трьох елементів на сторінці можна за допомогою методу
+								"getBoundingClientRect()".
+								Координати можна отримати відносно вікна браузера та документа. Приклад коду отримання координат трьох
+								об'єктів відносно
+								документа може бути наступний:</p>
+							<p>
+							<pre><code>function showWindowItemsCoord() {</code> // Створюмо функцію для виводу в консоль координат трьох об'єктів на сторінці.</pre>
+							<pre><code>  function getItemsCoord() {</code> // Створюємо функцію для отримання координат трьох об'єктів</pre>
+							<pre><code>    const pageItemArray = document.querySelector('.array__text');</code> // Отримуємо в змінну об'єкт № 1.</pre>
+							<pre><code>    const pageItemFunction = document.querySelector('.function__text');</code> // Отримуємо в змінну об'єкт № 2</pre>
+							<pre><code>    const pageItemDom = document.querySelector('.dom__text');</code> // Отримуємо в змінну об'єкт № 3.</pre>
+							<pre><code>    const getArrayText = pageItemArray.getBoundingClientRect().top;</code> // Отримуємо координати об'єкта № 1.</pre>
+							<pre><code>    const getFunctionText = pageItemFunction.getBoundingClientRect().top;</code> // Отримуємо координати об'єкта № 2.</pre>
+							<pre><code>    const getDomText = pageItemDom.getBoundingClientRect().top;</code> // Отримуємо координати об'єкта № 3.</pre>
+							<pre><code>    const itemsCoordArray = [getArrayText, getFunctionText, getDomText];</code> // Створюємо масив і передаємо в нього координати об'єктів.</pre>
+							<pre><code>    if (Array.isArray(itemsCoordArray)) {</code> // Робимо перевірку чи передані дані є масивом, якщо так, то виводимо їх в консоль.</pre>
+							<pre><code>      console.log(itemsCoordArray);</code></pre>
+							<pre><code>    }</code></pre>
+							<pre><code>  }</code></pre>
+							<pre><code>  getItemsCoord();</code></pre>
+							<pre><code>}</code></pre>
+							<pre><code>showDocItemsCoord();</code>.</pre>
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer"></footer>
+	</div>
+	<script src="js/script.js"></script>
+</body>
+</html>
